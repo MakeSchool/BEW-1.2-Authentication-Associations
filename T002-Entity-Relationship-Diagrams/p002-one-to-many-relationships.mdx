@@ -1,0 +1,46 @@
+---
+title: 'One-to-Many Relationships'
+slug: 'one-to-many'
+contentType: 'TextContent'
+---
+
+# One-to-Many Relationships
+
+In the world of data modeling, there are three types of relationships: **One-to-Many**, **Many-to-Many**, and **One-to-One**. We'll explore each of those in the following lessons.
+
+## What is a One-to-Many Relationship?
+
+A **one-to-many relationship** describes a scenario between entities `X` and `Y` as: "One X can have many Y, but one Y can only have one X".
+
+Let's take an example: "On the website Instagram, one `User` can have many `Photo`s, but each `Photo` can belong to only one `User`."
+
+TODO: diagram
+
+To describe this type of relationship in a diagram, we use the cross and crow's foot symbols, as in the diagram above.
+
+## Challenge: Owner & Pet
+
+<FlashCard>
+<Prompt>
+
+Let's say you have been commissioned to build a database for a veterinary hospital, to model `Pet`s and `Owner`s. You will need to keep track of each `Owner`'s information, such as their name, address, phone number, etc, and each `Pet`'s information, such as their species, age, weight, etc.
+
+**What should be the relationship between `Owner` and `Pet`?**
+
+1. One-to-Many
+1. Many-to-Many
+1. One-to-One
+
+</Prompt>
+<Answer>
+
+The relationship between `Owner` and `Pet` would be **One-to-Many**, because one Owner can have many Pets, but each Pet can have only one Owner.
+
+Importantly, this is true **even if every single owner in the database has only one pet!** The relationship describes what is _possible_ to store in the database; it doesn't necessarily describe the actual data stored there.
+
+</Answer>
+</FlashCard>
+
+## Exercise: Complete Relationships
+
+TODO: Add exercises
