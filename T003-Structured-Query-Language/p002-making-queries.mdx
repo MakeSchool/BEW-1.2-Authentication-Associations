@@ -1,0 +1,94 @@
+---
+title: 'Making Queries'
+slug: 'making-queries'
+contentType: 'TextContent'
+---
+
+# Making Queries
+
+Now that we've got a basic understanding of the SQL language, let's try making some queries. This will allow us to retrieve data from a database table that matches a set of criteria.
+
+For the below examples, assume that we have the following data set in the `Users` table:
+
+TODO: table
+
+To check out what you'll learn in this lesson, take a look at the Repl.it included below and try out the commands.
+
+https://replit.com/@MakeSchool/MakingQueries#main.sql
+
+## The SELECT Statement
+
+This statement selects _all_ rows from _all_ users from the `Users` table:
+
+```sql
+SELECT * FROM Users;
+```
+
+The asterisk character `*` acts as a wildcard to select _all_ rows from the table. If we only want to select a few specific rows, we can list them separated by commas.
+
+This statement selects the first and last names (but not the ages) of all users in the `Users` table:
+
+```sql
+SELECT first_name, last_name FROM Users;
+```
+
+## The WHERE Clause
+
+We can use the `WHERE` clause to select only the rows in the table which adhere to a certain boolean condition. The clause following the `WHERE` keyword is evaluated as a boolean expression, so we can use any valid operators like `<`, `>`, `<=`, and `>=` which return a boolean.
+
+This statement selects all users from the `Users` table whose age is greater than 24:
+
+```sql
+SELECT * FROM Users WHERE age > 24;
+```
+
+Note that to check if a certain field is _equal_ to a particular value, we would use a single equals sign `=`:
+
+```sql
+SELECT * FROM Users WHERE first_name = 'Leonard';
+```
+
+## Logical Operators: AND, OR, NOT
+
+We can also use the AND, OR, and NOT operators to form more complex conditions.
+
+This statement selects all users whose last name is 'Cooper' _and_ who are older than 20:
+
+```sql
+SELECT * FROM Users WHERE last_name = 'COOPER' AND age > 20;
+```
+
+## The LIKE Operator
+
+Sometimes, we want to look for an _inexact_ match in a text field, rather than an exact match. We can use the `LIKE` keyword, along with the wildcard character `%`, to do that.
+
+Let's say we have the following data in the `Fruits` table:
+
+| name | price | quantity |
+|:--:|:--:|:--:|
+| granny smith apple | 0.99 | 5 |
+| banana | 0.69 | 10 |
+| honeycrisp apple | 1.29 | 8 |
+| mandarin orange | 0.89 | 5 |
+| mango | 2.99 | 3 |
+
+We could select all rows with names that end in the word `apple` with the following query:
+
+```sql
+SELECT * FROM Fruits WHERE name LIKE '%apple';
+```
+
+The wildcard character `%` matches to any number of characters when it's used with the `LIKE` operator, so any row with name ending in "apple" will be included.
+
+If you want to select for rows that contain "apple" _anywhere_ in the name, and not just at the end (such as "apple pie"), you would need to use another wildcard character at the end of the string, like so:
+
+```sql
+SELECT * FROM Fruits WHERE name LIKE '%apple%';
+```
+
+
+## Challenge: Complete the Queries
+
+To test your understanding so far, try out the following exercises:
+
+TODO: repl

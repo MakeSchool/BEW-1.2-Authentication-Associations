@@ -6,4 +6,39 @@ contentType: 'TextContent'
 
 # What is SQL?
 
-TODO: Add content here
+**SQL** (pronounced as "Sequel") stands for **Structured Query Language**. It is a programming language that is used to communicate directly with a database.
+
+TODO: diagram
+
+In a SQL database, **all data is stored in tables**. Unlike in NoSQL, we can't store arbitrary objects - only keys and values.
+
+For example, this might be our Users table:
+
+TODO: table
+
+We could then write a **SQL query** to retrieve specific data from the database that satisfies a set of criteria. For example, to get all users who are at least age 25, I might write a query like this:
+
+```sql
+SELECT * FROM Users WHERE age >= 25;
+```
+
+Which might return a data set that looks like this:
+
+TODO: table
+
+## "Dialects" of SQL
+
+SQL also isn't just one language. There are many different "dialects" of SQL, each of which has some minor differences. These include:
+
+- MySQL
+- Oracle
+- PostgreSQL
+- SQLite
+
+The differences aren't too important, though - it's more important to understand the concepts so that you can apply them to any scenario.
+
+## SQL vs. NoSQL
+
+There are some important differences between SQL databases and NoSQL, or document-based, databases (such as MongoDB). A few of these are listed below:
+
+TODO: table

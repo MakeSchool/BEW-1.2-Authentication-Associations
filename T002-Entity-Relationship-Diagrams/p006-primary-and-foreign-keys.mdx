@@ -3,3 +3,49 @@ title: 'Primary and Foreign Keys'
 slug: 'primary-and-foreign-keys'
 contentType: 'TextContent'
 ---
+
+# Primary and Foreign Keys
+
+The last piece of missing information in our understanding of entity relationship diagrams is **primary and foreign keys**. These are both special fields within an entity. The **primary key** is a special field we can use to look up an instance of an entity, and the **foreign key** denotes a relationship between entities.
+
+## Primary Keys
+
+A **primary key** is a field in an entity that can be used to uniquely identify each instance of the entity. Usually, this is an `id` field, but we can use another field instead as the primary key, such as a username.
+
+To be used as a primary key, a field must be:
+
+- Unique (e.g. no two users can have the same username)
+- Not null (e.g. every user must have a username)
+- Never changing (e.g. a user cannot modify their username)
+
+Check your understanding by trying the examples below.
+
+<FlashCard>
+<Prompt>
+
+Which if these would make a good primary key for a `User` entity?
+
+- First and last name
+- Phone number
+- Email address
+- Social security number
+
+</Prompt>
+<Answer>
+
+The answer is that **none of these** would be suitable as a primary key field! Each of them fails at least one check.
+
+- First and last name - Not unique! Two people could both be named "Joe Smyte".
+- Phone number - Could change!
+- Email address - Could change!
+- Social security number - Not everyone has one!
+
+</Answer>
+</FlashCard>
+
+We can label a primary field with PK in the entity relationship diagram, like in this example:
+
+TODO: diagram
+
+## Foreign Keys
+

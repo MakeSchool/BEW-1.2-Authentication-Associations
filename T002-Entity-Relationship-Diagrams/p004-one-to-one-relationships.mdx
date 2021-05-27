@@ -3,3 +3,48 @@ title: 'One-to-One Relationships'
 slug: 'one-to-one'
 contentType: 'TextContent'
 ---
+
+# One-to-One Relationships
+
+One-to-one relationships are relatively uncommon in database design, but it's important to go over them because they do come up sometimes.
+
+A **one-to-one** relationship describes a scenario between entities `X` and `Y` as: "One X can have only one Y, _and_ one Y can have only one X".
+
+An example of this would be a `Person` and a `Passport`.
+
+![erd of user & passport](./user-passport-erd.png)
+
+Typically, we can expect that a person can own only one passport (and if they get a new one, they must delete or invalidate the old one), and a passport can belong to only one person.
+
+## Common Pitfall: One-to-One Relationship, or Field?
+
+If a one-to-one relationship can be encapsulated in a single field (e.g. a string, integer, boolean, datetime, etc), then it should be stored as a field, _not_ as a separate entity.
+
+Let's take an example: If we are storing a `User` object and want to store their birth date, then there is no reason we'd need to make an entirely separate object for `BirthDate` just to store that single field. It would make more sense to store that information as a `birth_date` field in the `User` entity.
+
+## Challenge: Identify Relationships
+
+<FlashCard>
+<Prompt>
+
+For the following examples, identify whether the relationship is one-to-one, one-to-many, or many-to-many. If the relationship is many-to-many, choose a suitable name for a bridge table. Write down your answers and then check your work.
+
+1. `Song` -- `Playlist`
+1. `User` -- `BlogPost`
+1. `BlogPost` -- `Comment`
+1. `Item` -- `Purchase` (e.g. on Amazon, where one "item" can be bought multiple times)
+1. `User` -- `Address` (assuming a user can only have one address on file at a time)
+1. `User` -- `Purchase`
+
+</Prompt>
+<Answer>
+
+1. `Song` -- `Playlist` is **many-to-many**, because a song can be on multiple playlists, and a playlist can have multiple songs. A suitable bridge table name would be (for example) `SongPlaylistEntry`.
+1. `User` -- `BlogPost` is **one-to-many**, because a user can write multiple blog posts, but a blog post can only be written by one user.
+1. `BlogPost` -- `Comment` is **one-to-many**, because a blog post can have multiple comments, but a comment can only apply to one blog post.
+1. `Item` -- `Purchase` is **many-to-many**, because an item can be purchased multiple times, and a purchase can contain multiple items. A suitable bridge table name would be (for example) `ItemPurchase`.
+1. `User` -- `Address` is **one-to-one**, because a user can have only one address, and an address can only belong to one user. (If two people live at the same residence, their information would actually be stored in two separate `Address` objects.)
+1. `User` -- `Purchase` is **one-to-many**, because a user can make multiple purchases, but a single purchase can only be made by one user.
+
+</Answer>
+</FlashCard>

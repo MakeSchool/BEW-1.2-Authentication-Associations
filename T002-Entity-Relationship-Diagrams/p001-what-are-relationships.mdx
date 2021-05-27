@@ -14,16 +14,15 @@ How we handle those questions when planning or implementing a database is called
 
 The entity relationship diagram for `Parent` - `Child` might look like this:
 
-TODO: diagram
+![diagram of parent & child](./parent-child-erd.png)
 
-## Example: Instagram
+## Example: Photo Sharing Site
 
 So far, we've looked at an example with only two entities: Parent and Child. However, usually a database will contain many more entities.
 
-Let's look at an Instagram-like website that stores `User`s, `Photo`s, `Comment`s, and `Reply`s. A diagram of its relationships might look like this:
+Let's look at a photo sharing website that stores `User`s, `Photo`s, `Comment`s, and `Reply`s. A diagram of its relationships might look like this:
 
-
-TODO: diagram
+![diagram of users, photos, comments, and replies](./erd-1.png)
 
 ## What is an Entity?
 
@@ -32,14 +31,14 @@ An **entity**, also sometimes called a **resource**, is a category of objects th
 For example, a `BlogPost` is an entity because each BlogPost _instance_ contains a `title`, `contents`, and an `author_id`.
 
 
-TODO: diagram
+![blog post class & instance](./blog-post-entity.png)
 
 ## Common Pitfall: What is NOT an Entity?
 
 Let's take another scenario: Let's say we are modeling Facebook posts and users. (We'll keep it simple for now.) A beginner student might be tempted to draw a diagram like this:
 
 
-TODO: diagram
+![not an erd](./facebook-erd-counterexample.png)
 
 However, this is incorrect, because "Facebook" is _not_ an entity. There is only one of it, so "Facebook" cannot have instances. There would be no point to putting it in our database - Facebook _is_ the database!
 
@@ -63,7 +62,7 @@ Let's say you have been commissioned to build a database for a veterinary hospit
 
 `Owner` could have fields such as: `name`, `address`, `phone_number`
 
-For the second question, there isn't a single right answer! You would need to decide based on how the veterinary hospital uses the data.
+For the second question, there isn't a single right answer! You would need to decide based on how the veterinary hospital uses the data. It could be that each pet is limited to only having one owner; or they have one primary and one secondary owner; or multiple owners! On the other hand though, one owner should definitely be able to have multiple pets. Otherwise, it wouldn't be a very good pet hospital!
 
 </Answer>
 </FlashCard>
